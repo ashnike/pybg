@@ -19,7 +19,13 @@ jobs:
           python-version: 3.8
           
       - name: Install dependencies
-        run: pip install -r requirements.txt
-        
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Start Flask application
+        run: |
+          python3 app.py &
+          sleep 5  # Wait for the application to start
+          
       - name: Run tests
         run: behave
