@@ -5,13 +5,13 @@ import requests
 def visit_index_page(context):
     context.response = requests.get('http://127.0.0.1:5000/')
 
+@then('I should see the "Hello World!" heading')
+def check_hello_world_heading(context):
+    assert 'Hello World!' in context.response.text
+
 @then('I should see an input field with the name "{field_name}"')
 def check_input_field(context, field_name):
     assert field_name in context.response.text
-
-@when('I submit valid input "{input_text}" in the input field')
-def submit_valid_input(context, input_text):
-    context.response = requests.post('http://127.0.0.1:5000/', data={'name': input_text})
 
 @then('I should see the heading "{expected_heading}"')
 def check_heading(context, expected_heading):
@@ -21,3 +21,6 @@ def check_heading(context, expected_heading):
 def check_submitted_input(context, submitted_input):
     assert submitted_input in context.response.text
 
+@when('I submit valid input "{input_text}" in the input field')
+def submit_valid_input(context, input_text):
+    context.response = requests.post('http://127.0.0.1:5000/', data={'name': input_text})
