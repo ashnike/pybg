@@ -1,0 +1,5 @@
+Flask==2.2.7
+behave==1.2.6
+requests==2.30.1
+gunicorn==21.0.2
+

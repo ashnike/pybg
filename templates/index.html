@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask App with Inputs</title>
+</head>
+<body>
+    <h1>{{ heading }}</h1>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Enter your name">
+        <button type="submit">Submit</button>
+    </form>
+    {% if inputs %}
+        <p>Entered inputs:</p>
+        <ul>
+            {% for key, value in inputs.items() %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
