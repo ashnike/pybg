@@ -25,5 +25,5 @@ def index():
         return render_template('error.html', message='Template not found!')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=false)
+    app.run(host='0.0.0.0', debug=False)
 
