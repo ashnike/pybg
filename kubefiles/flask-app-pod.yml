@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-app
-          image: your-flask-app-image:tag
+          image: pyyflask:latest
           ports:
             - containerPort: 5000
 ---
