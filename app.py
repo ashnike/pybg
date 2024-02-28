@@ -2,11 +2,14 @@ import os  # Import the os module
 
 from flask import Flask, render_template, request
 from jinja2.exceptions import TemplateNotFound
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
 
 # Set the template directory explicitly
 app.config['TEMPLATES'] = os.path.join(os.path.dirname(__file__), 'templates')
+
+metrics = PrometheusMetrics(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
