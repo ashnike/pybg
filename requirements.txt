@@ -2,4 +2,4 @@ Flask
 behave
 requests
 gunicorn
-
+prometheus-flask-exporter
