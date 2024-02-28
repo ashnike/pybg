@@ -1,6 +1,0 @@
-apiVersion: v2
-name: grafana
-description: A Helm chart for deploying Grafana dashboard and analytics platform.
-version: 1.0.0
-appVersion: 8.2.1
-
