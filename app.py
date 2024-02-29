@@ -12,11 +12,12 @@ app.config['TEMPLATES'] = os.path.join(os.path.dirname(__file__), 'templates')
 metrics = PrometheusMetrics(app)
 
 
-request_count = metrics.define_counter(
+# Define Prometheus metrics
+request_count = metrics.counter(
     'flask_app_requests_total', 'Total number of requests served by the app'
 )
-app_health = metrics.define_gauge(
-    'flask_app_health', 'Health status of the Flask application (1: healthy, 0: unhealthy)', 1
+app_health = metrics.gauge(
+    'flask_app_health', 'Health status of the Flask application (1: healthy, 0: unhealthy)'
 )
 
 @app.route('/', methods=['GET', 'POST'])
@@ -37,13 +38,10 @@ def index():
 
 @app.route('/health')
 def health_check():
-    if True:  
-        app_health.set(1)  # Set metric to 1 (healthy)
-        return 'App is healthy'
-    else:
-        app_health.set(0)  # Set metric to 0 (unhealthy)
-        return 'App is unhealthy', 500
-
+    # Your health check logic goes here
+    app_health.set(1)  # Set metric to 1 (healthy)
+    return 'App is healthy'
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=False)
 
