@@ -13,5 +13,6 @@ data:
       - job_name: 'nginx'
         static_configs:
           - targets: ['nginx-service:80'] 
+        metrics_path: /nginx_status
   alerting_rules.yml: |
     # Include alert rules here
