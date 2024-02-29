@@ -10,5 +10,8 @@ data:
       - job_name: 'flask-app'
         static_configs:
           - targets: ['flask-app-service:5000']
+      - job_name: 'nginx'
+        static_configs:
+          - targets: ['nginx-service:80'] 
   alerting_rules.yml: |
     # Include alert rules here
