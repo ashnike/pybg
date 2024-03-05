@@ -1,10 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-app
+  name: flask-app-dep
   labels:
     app: flask-app
-    type: front-end
 spec:
   replicas: 2
   selector:
@@ -12,10 +11,8 @@ spec:
       app: flask-app
   template:
     metadata:
-      name: myapp-prod
       labels:
         app: flask-app
-        type: front-end
     spec:
       containers:
         - name: flask-app
@@ -33,7 +30,6 @@ metadata:
 spec:
   selector:
     app: flask-app
-    type: front-end
   ports:
     - name : web
       protocol: TCP
