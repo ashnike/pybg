@@ -52,7 +52,7 @@ spec:
   endpoints: 
     - interval: 15s
       port: web
-      path: /nginx_status
+      path: /metrics
   selector:
     matchLabels:
       app: flask-app
