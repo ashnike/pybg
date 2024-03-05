@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: flask-app
   labels:
-    app: myapp
+    app: flask-app
     type: front-end
 spec:
   replicas: 2
@@ -29,7 +29,7 @@ metadata:
   name: flask-app-service
   labels:
     job: fk-app
-    app: fk-service
+    app: flask-app
 spec:
   selector:
     app: flask-app
@@ -55,4 +55,4 @@ spec:
       path: /nginx_status
   selector:
     matchLabels:
-      app: fk-service
+      app: flask-app
