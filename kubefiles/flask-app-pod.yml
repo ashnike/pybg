@@ -28,6 +28,7 @@ metadata:
     job: fk-app
     app: flask-app
 spec:
+  type: ClusterIP
   selector:
     app: flask-app
   ports:
